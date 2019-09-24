@@ -393,17 +393,12 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">create TABLE pet(</span><br><span class="line">                   name VARCHAR(20),</span><br><span class="line">                   owner VARCHAR(20),</span><br><span class="line">                   specise VARCHAR(20),</span><br><span class="line">                   sex CHAR(1),</span><br><span class="line">                   brith DATAE,</span><br><span class="line">                   death DATE );</span><br></pre></td></tr></table></figure>
 
 <p>注意事项:                    </p>
-<ol start="5">
-<li><p>1: var()与varchar()的区别在于var()是定常的,哪怕存储的字符串没有达到”()”中数字的上限,var()依然会占用空格来填充空间.而varchar()则是不定长的,没有达到”()”中的上限则会自动去掉后面的空格;                    </p>
-</li>
-<li><p>2:性别不要用:sex 要用:gender  一个是性 一个是性别;                     </p>
-</li>
-<li><p>3:定义最后一个字段的时候不要加”,”;                    </p>
-</li>
-<li><p>4:上面的”VAR”,”VARCHAR”,”DATE”可以用小写.不过最好用大写来表示区分关键字,若不然也许写到后面你自己都不知道这个词是数据库中的关键字还是你自己自定义的一些数据,同时一定要用英文的标点符号也必须半角输入</p>
-</li>
-<li><p>查看数据表的架构</p>
-</li>
+<p>(1) : var()与varchar()的区别在于var()是定常的,哪怕存储的字符串没有达到”()”中数字的上限,var()依然会占用空格来填充空间.而varchar()则是不定长的,没有达到”()”中的上限则会自动去掉后面的空格;                   </p>
+<p>(2) : 性别不要用:sex 要用:gender  一个是性 一个是性别;                     </p>
+<p>(3) :定义最后一个字段的时候不要加”,”;                    </p>
+<p>(4) : 上面的”VAR”,”VARCHAR”,”DATE”可以用小写.不过最好用大写来表示区分关键字,若不然也许写到后面你自己都不知道这个词是数据库中的关键字还是你自己自定义的一些数据,同时一定要用英文的标点符号也必须半角输入</p>
+<ol start="6">
+<li>查看数据表的架构</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">describe tableName;</span><br><span class="line">+-------+-------------+------+-----+---------+-------+</span><br><span class="line">| Field | Type        | Null | Key | Default | Extra |</span><br><span class="line">+-------+-------------+------+-----+---------+-------+</span><br><span class="line"> Field    :    字段的名称</span><br><span class="line">  Type     :    字段的类型,可以有int    var    varchar    </span><br><span class="line">  Key      :    是否是关键字 如可以定义为:  primary key 或者 unique key   ...</span><br><span class="line">Default: :    若是该字段没有主动设置值的时候,该字段的默认值是什么?</span><br></pre></td></tr></table></figure>
 
