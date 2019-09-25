@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Test043]]></title>
+    <url>%2F2019%2F09%2F25%2FTest043%2F</url>
+    <content type="text"><![CDATA[数据准备学生表1234567create table student( sno varchar(20) primary key, sname varchar(20) not null, ssex varchar(10) not null, sbirthday datetime, class varchar(20)); 教师表12345678create table teacher( tno varchar(20) primary key, tname varchar(20) not null, tsex varchar(10) not null, tbrithday datetime, prof varchar(20) not null, depart varchar(20) not null); 课程表123456create table course( cno varchar(20) primary key, cname varchar(20) not null, tno varchar(20) not null, foreign key(tno) references teacher(tno)); 成绩表1234567create table score( sno varchar(20) primary key, cno varchar(20) not null, degree decimal, foreign key(sno) references student(sno), foreign key(cno) references course(cno)); P19-13:00]]></content>
+      <categories>
+        <category>Mysql</category>
+      </categories>
+      <tags>
+        <tag>查询练习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Test042]]></title>
     <url>%2F2019%2F09%2F25%2FTest042%2F</url>
     <content type="text"><![CDATA[数据库的三大设计范式第一范式-1NF数据表中的所有字段都是不可分割的原子值 123456789create table student2( id int primary key, name varchar(20), address varchar(30));insert into student2 values(1,&apos;张三&apos;,&apos;中国广东省汕头市龙湖区星光大道1001号&apos;);insert into student2 values(2,&apos;李四&apos;,&apos;中国广东省汕头市龙湖区月光大道1002号&apos;);insert into student2 values(3,&apos;王五&apos;,&apos;中国广东省汕头市龙湖区阳光大道1003号&apos;); 字段值还可以继续拆分的，就不满足第一范式 123456789101112create table student3( id int primary key, name varchar(20), country varchar(30), province varchar(30), city varchar(30), details varchar(30));insert into student3 values(1,&apos;张三&apos;,&apos;中国&apos;,&apos;广东省&apos;,&apos;汕头市&apos;,&apos;龙湖区星光大道1001号&apos;);insert into student3 values(2,&apos;李四&apos;,&apos;中国&apos;,&apos;广东省&apos;,&apos;汕头市&apos;,&apos;濠江区月光大道1002号&apos;);insert into student3 values(3,&apos;王五&apos;,&apos;中国&apos;,&apos;广东省&apos;,&apos;汕头市&apos;,&apos;龙湖区阳光大道1003号&apos;); 范式设计的越详细，对于某些实际操作可能更好，但是不一定都是好处 第二范式-2NF 必须是满足第一范式的前提下，第二范式要求，除主键外的每一列都必须完全依赖于主键 如果要出现不完全依赖，只可能发生在联合逐渐的情况下 1234567create table myorder1( product_id int, customer_id int, product_name varchar(20), customer_name varchar(20), primary key(product_id,customer_id)); 问题？： 除主键以外的其他列，只依赖与主键的部分字段 拆表 123456789101112131415create table myorder2( order_id int primary key, product_id int, customer_id int);create table product( id int primary key, name varchar(20));create table customer( id int primary key, name varchar(20)); 分成三个表之后就满足第二范式的设计 第三范式-3NF 必须先满足第二范式，除开主键列的其他列之间不能有传递依赖关系 123456create table myorder3( order_id int primary key, product_id int, customer_id int, customer_phone varchar(15)); 要满足第三范式需要拆分为： 1234567891011create table myorder4( order_id int primary key, product_id int, customer_id int,);create table customer4( id int primary key, name varchar(20), phone varchar(15)); B站数据库Mysql视频看到P19]]></content>
