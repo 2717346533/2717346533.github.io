@@ -284,6 +284,157 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/24/Test041/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="林泽鑫">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/lzx.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/24/Test041/" itemprop="url">Test041</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-24T20:17:11+08:00">
+                2019-09-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/09/24/Test041/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/09/24/Test041/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Mysql建表约束"><a href="#Mysql建表约束" class="headerlink" title="Mysql建表约束"></a>Mysql建表约束</h1><h2 id="主键约束"><a href="#主键约束" class="headerlink" title="主键约束"></a>主键约束</h2><p>它能够唯一确定一张表中的一条记录，也就是我们通过某个字段添加约束，就可以使得该字段不重复且不为空</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">create table user(</span><br><span class="line">	id int primary key,</span><br><span class="line">	name varchar(20)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">插入数据</span><br><span class="line">insert into user values(1,&apos;张三&apos;);</span><br><span class="line"></span><br><span class="line">insert into user values(1,&apos;张三&apos;);# 主键不可重复</span><br><span class="line">ERROR 1062 (23000): Duplicate entry &apos;1&apos; for key &apos;PRIMARY&apos;</span><br><span class="line"></span><br><span class="line">insert into user values(2,&apos;张三&apos;);</span><br><span class="line">Query OK, 1 row affected (0.02 sec)</span><br><span class="line"></span><br><span class="line">insert into user values(null,&apos;张三&apos;);# 主键不可为空</span><br><span class="line">ERROR 1048 (23000): Column &apos;id&apos; cannot be null</span><br><span class="line"></span><br><span class="line"># 联合主键,只要联合的主键值加起来不重复就可以</span><br><span class="line"># primary key的使用位置</span><br><span class="line">create table user2(</span><br><span class="line">	id int,</span><br><span class="line">	name varchar(20),</span><br><span class="line">	password varchar(20),</span><br><span class="line">	primary key(id,name)	</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">insert into user2 values(1,&apos;张三&apos;,&apos;123&apos;);</span><br><span class="line">Query OK, 1 row affected (0.08 sec)</span><br><span class="line"></span><br><span class="line">insert into user2 values(1,&apos;张三&apos;,&apos;123&apos;);</span><br><span class="line">ERROR 1062 (23000): Duplicate entry &apos;1-张三&apos; for key &apos;PRIMARY&apos;</span><br><span class="line"></span><br><span class="line">insert into user2 values(2,&apos;张三&apos;,&apos;123&apos;);</span><br><span class="line">Query OK, 1 row affected (0.01 sec)</span><br><span class="line"></span><br><span class="line">insert into user2 values(1,&apos;李四&apos;,&apos;123&apos;);</span><br><span class="line">Query OK, 1 row affected (0.04 sec)</span><br><span class="line"></span><br><span class="line">insert into user2 values(null,&apos;李四&apos;,&apos;123&apos;);# 联合主键的任何一个都不为空</span><br><span class="line">ERROR 1048 (23000): Column &apos;id&apos; cannot be null</span><br><span class="line"></span><br><span class="line"># 如果我们创建表的时候，忘记创建主键约束了？改怎么办？</span><br><span class="line"></span><br><span class="line">create table user4(</span><br><span class="line">	id int,</span><br><span class="line">	name varchar(20)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">#修改表结构，添加主键</span><br><span class="line">alter table user4 add primary key(id);</span><br><span class="line"></span><br><span class="line">#删除主键</span><br><span class="line">alter table user4 drop primary key;</span><br><span class="line"></span><br><span class="line">#使用 modify 修改字段，添加约束</span><br><span class="line">alter table user4 modify id int primary key;</span><br></pre></td></tr></table></figure>
+
+<h2 id="自增约束"><a href="#自增约束" class="headerlink" title="自增约束"></a>自增约束</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">create table user3(</span><br><span class="line">	id int primary key auto_increment,</span><br><span class="line">	name varchar(20)</span><br><span class="line">);</span><br><span class="line">#重复执行，id会自动增加</span><br><span class="line">insert into user3 (name) values(&apos;zhangsan&apos;);</span><br><span class="line"></span><br><span class="line">insert into user3 (name) values(&apos;zhangsan&apos;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="唯一约束（约束修饰的字段的值不可以重复）"><a href="#唯一约束（约束修饰的字段的值不可以重复）" class="headerlink" title="唯一约束（约束修饰的字段的值不可以重复）"></a>唯一约束（约束修饰的字段的值不可以重复）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">create table user5(</span><br><span class="line">	id int,</span><br><span class="line">	name varchar(20)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">#修改表结构，添加唯一键</span><br><span class="line">alter table user5 add unique(name);</span><br><span class="line"></span><br><span class="line">insert into user5 values(1,&apos;zhangsan&apos;);</span><br><span class="line"></span><br><span class="line">insert into user5 values(1,&apos;zhangsan&apos;);</span><br><span class="line">ERROR 1062 (23000): Duplicate entry &apos;zhangsan&apos; for key &apos;name&apos;</span><br><span class="line"></span><br><span class="line">insert into user5 values(1,&apos;lisi&apos;);</span><br><span class="line"></span><br><span class="line">#设置唯一键的不同方法一</span><br><span class="line">create table user6(</span><br><span class="line">	id int,</span><br><span class="line">	name varchar(20),</span><br><span class="line">	unique(name)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">#设置唯一键的不同方法二</span><br><span class="line">create table user7(</span><br><span class="line">	id int,</span><br><span class="line">	name varchar(20) unique</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">#unique(id,name)表示俩个键在一起不重复就行</span><br><span class="line">create table user8(</span><br><span class="line">	id int,</span><br><span class="line">	name varchar(20),</span><br><span class="line">	unique(id,name)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">#删除唯一约束</span><br><span class="line">alter table user7 drop index name;</span><br><span class="line"></span><br><span class="line">#modify添加</span><br><span class="line">alter table user7 modify name varchar(20) unique;</span><br></pre></td></tr></table></figure>
+
+<p>总结：</p>
+<ol>
+<li>建表的时候就添加约束</li>
+<li>可以使用alter…add…</li>
+<li>alter…modify…</li>
+<li>删除alter…drop…</li>
+</ol>
+<h2 id="非空约束（修饰的字段不能为空NULL）"><a href="#非空约束（修饰的字段不能为空NULL）" class="headerlink" title="非空约束（修饰的字段不能为空NULL）"></a>非空约束（修饰的字段不能为空NULL）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">create table user9(</span><br><span class="line">	id int,</span><br><span class="line">	name varchar(20) not null</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">insert into user9 (id) values(1);</span><br></pre></td></tr></table></figure>
+
+<h2 id="默认约束"><a href="#默认约束" class="headerlink" title="默认约束"></a>默认约束</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">create table user10(</span><br><span class="line">	id int,</span><br><span class="line">	name varchar(20),</span><br><span class="line">	age int default 10</span><br><span class="line">	);</span><br><span class="line">	</span><br><span class="line">insert into user10(id,name) values(1,&apos;zhangsan&apos;);</span><br><span class="line"></span><br><span class="line">insert into user10 values(1,&apos;zhangsan&apos;,15);</span><br></pre></td></tr></table></figure>
+
+<h2 id="外键约束-父表-主表，子表-副表"><a href="#外键约束-父表-主表，子表-副表" class="headerlink" title="外键约束(父表/主表，子表/副表)"></a>外键约束(父表/主表，子表/副表)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"># 班级</span><br><span class="line">create table classes(</span><br><span class="line">	id int primary key,</span><br><span class="line">	name varchar(20)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"># 学生表</span><br><span class="line">create table students(</span><br><span class="line">	id int primary key,</span><br><span class="line">	name varchar(20),</span><br><span class="line">	class_id int,</span><br><span class="line">	foreign key(class_id) references classes(id)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">insert into classes values(1,&apos;一班&apos;);</span><br><span class="line">insert into classes values(2,&apos;二班&apos;);</span><br><span class="line">insert into classes values(3,&apos;三班&apos;);</span><br><span class="line">insert into classes values(4,&apos;四班&apos;);</span><br><span class="line"></span><br><span class="line">insert into students values(1001,&apos;张三&apos;,1);</span><br><span class="line">insert into students values(1002,&apos;张三&apos;,2);</span><br><span class="line">insert into students values(1003,&apos;张三&apos;,3);</span><br><span class="line">insert into students values(1004,&apos;张三&apos;,4);</span><br><span class="line"></span><br><span class="line">#主表(父表)classes中没有的数据值，在副表(子表)中，是不可以使用的</span><br><span class="line">#主表中的记录被副表引用，是不可以被删除的</span><br><span class="line">insert into students values(1005,&apos;张三&apos;,5);</span><br></pre></td></tr></table></figure>
+
+<p>下面准备学习数据表设计P16</p>
+<p><img src="/images/01001.jpg" alt="image"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/23/Test040/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1637,164 +1788,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/13/Test031/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="林泽鑫">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/lzx.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/09/13/Test031/" itemprop="url">Test031</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-13T00:29:35+08:00">
-                2019-09-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/09/13/Test031/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/09/13/Test031/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="占领一座知识的领地"><a href="#占领一座知识的领地" class="headerlink" title="占领一座知识的领地"></a>占领一座知识的领地</h1><table>
-<thead>
-<tr>
-<th>matplotlib</th>
-<th>Numpy</th>
-<th>Pandas</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>数据可视化</td>
-<td>数值类型数据分析</td>
-<td>不同数据类型的数据分析，比如字符串和时间序列</td>
-</tr>
-<tr>
-<td>散点，条形，直方，折线图</td>
-<td>多维度数组（矩阵）</td>
-<td>Series一维，带标签数组，DataFrame二维，Series容器</td>
-</tr>
-</tbody></table>
-<ul>
-<li><p>接下来是Tornado</p>
-<p><img src="/images/Queue002.jpg" alt="image"></p>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1843,32 +1841,14 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">41</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
 
             
-              
-              
-              <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
-                  <span class="site-state-item-count">1</span>
-                  <span class="site-state-item-name">分类</span>
-                </a>
-              </div>
-            
 
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">1</span>
-                  <span class="site-state-item-name">标签</span>
-                </a>
-              </div>
             
 
           </nav>
