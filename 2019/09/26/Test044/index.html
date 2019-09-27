@@ -87,10 +87,12 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="查询和学号为108，101的同学同年出生的所有学生的sno,sname和sbirthday列1select * from student where year(sbirthday) in (select year(sbirthday) from student where sno in(108,101));  查询“张旭”教师任课的学生成绩1select degree from score whe">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-26T14:42:20.849Z">
+<meta property="og:image" content="http://yoursite.com/images/01004.jpg">
+<meta property="og:updated_time" content="2019-09-27T05:59:20.735Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Test044">
 <meta name="twitter:description" content="查询和学号为108，101的同学同年出生的所有学生的sno,sname和sbirthday列1select * from student where year(sbirthday) in (select year(sbirthday) from student where sno in(108,101));  查询“张旭”教师任课的学生成绩1select degree from score whe">
+<meta name="twitter:image" content="http://yoursite.com/images/01004.jpg">
 
 
 
@@ -432,6 +434,7 @@
 
 <h1 id="现查询所有学生的sno-cno和grade列"><a href="#现查询所有学生的sno-cno和grade列" class="headerlink" title="现查询所有学生的sno,cno和grade列"></a>现查询所有学生的sno,cno和grade列</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># 假设使用如下命令建立一个grade表：</span><br><span class="line">create table grade(</span><br><span class="line">    low int(3),</span><br><span class="line">    upp int(3),</span><br><span class="line">    grade char(1)	</span><br><span class="line">);</span><br><span class="line">insert into grade values(90,100,&apos;A&apos;);</span><br><span class="line">insert into grade values(80,89,&apos;B&apos;);</span><br><span class="line">insert into grade values(70,79,&apos;C&apos;);</span><br><span class="line">insert into grade values(60,69,&apos;D&apos;);</span><br><span class="line">insert into grade values(0,59,&apos;E&apos;);</span><br><span class="line"></span><br><span class="line">select sno,cno,grade from score,grade where degree between low and upp;</span><br></pre></td></tr></table></figure>
 
+<p><img src="/images/01004.jpg" alt="image"></p>
 
       
     </div>
@@ -471,6 +474,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/09/27/Test045/" rel="prev" title="Test045">
+                Test045 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -554,7 +561,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-count">46</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -576,7 +583,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
