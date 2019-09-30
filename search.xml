@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[Test048]]></title>
     <url>%2F2019%2F10%2F01%2FTest048%2F</url>
-    <content type="text"><![CDATA[解决啦终于解决了P7的Flask与Mysql数据库连接的问题 方法总结： 换了编辑器，没有使用虚拟环境的编辑器 没有导入和应用pymysql库 中间uuid和auths也出了点问题，不过我删除重新编写就没事了 目前做到P9]]></content>
+    <content type="text"><![CDATA[解决啦终于解决了P7的Flask与Mysql数据库连接的问题 方法总结： 换了编辑器，没有使用虚拟环境的编辑器 没有导入和应用pymysql库 中间uuid和auths也出了点问题，不过我删除重新编写就没事了 目前做到P10，注册页面完成！]]></content>
       <categories>
         <category>Flask</category>
       </categories>
