@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Test048]]></title>
+    <url>%2F2019%2F10%2F01%2FTest048%2F</url>
+    <content type="text"><![CDATA[解决啦终于解决了P7的Flask与Mysql数据库连接的问题 方法总结： 换了编辑器，没有使用虚拟环境的编辑器 没有导入和应用pymysql库 中间uuid和auths也出了点问题，不过我删除重新编写就没事了 目前做到P9]]></content>
+      <categories>
+        <category>Flask</category>
+      </categories>
+      <tags>
+        <tag>学习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Test047]]></title>
     <url>%2F2019%2F09%2F30%2FTest047%2F</url>
     <content type="text"><![CDATA[没有尽力学习的一天 把《大染坊》看完了 flask的微电影出了bug，做不出来了，只好找别的Flask项目了 Flask中文文档 flask-&gt;老男孩系列视频P3 公司杂事 实习证明 3号和4号排课时 5号讲放烟花]]></content>
