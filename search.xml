@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Test049]]></title>
+    <url>%2F2019%2F10%2F02%2FTest049%2F</url>
+    <content type="text"><![CDATA[总结 python_Flask微电影网站搭建，目的在于熟悉Flask框架 前几天解决了Flask和mysql连接的问题到现在没有出现其他问题，这个项目应该能顺利完成 目前做到P15 今日成果 完成了前台搜索页面的代码编写 404页面代码 后台首页 后台标签管理 添加标签 标签列表 后台电影管理 添加电影 电影管理 预告管理 添加预告 预告列表 学了点jinjia2语法 123456789101112131415161718192021222324#添加模板&#123;% extends &quot;xxx/xxx.html&quot; %&#125;#for循环&#123;% for v in range(1,11) %&#125;&#123;% endfor %&#125;#添加内容&#123;% block content %&#125;&#123;% endblock %&#125;#添加js&#123;% block js %&#125;&#123;% endblock %&#125;#添加css&#123;% block css %&#125;&#123;% endblock %&#125;#文件路径方式1&#123;&#123; url_for(&apos;xxx.xxx&apos;) &#125;&#125;#文件路径方式2&#123;&#123; url_for(&apos;xxx&apos;,filename=&apos;xxx/xxx/xxx&apos;) &#125;&#125; 三年之约和两个女人的三年之约，看来我得加快我的步伐了 三年以后回村 三年以后娶老婆]]></content>
+      <categories>
+        <category>Flask</category>
+      </categories>
+      <tags>
+        <tag>学习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Test048]]></title>
     <url>%2F2019%2F10%2F01%2FTest048%2F</url>
     <content type="text"><![CDATA[解决啦终于解决了P7的Flask与Mysql数据库连接的问题 方法总结： 换了编辑器，没有使用虚拟环境的编辑器 没有导入和应用pymysql库 中间uuid和auths也出了点问题，不过我删除重新编写就没事了 目前做到P10，注册页面完成！]]></content>
