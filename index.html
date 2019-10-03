@@ -412,6 +412,34 @@
 <p>学习使用装饰器</p>
 <p>做到P19</p>
 <h1 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h1><p>晚上不想早睡，看会redisP1</p>
+<p>NoSQL：数据与数据之间没有关联关系</p>
+<p>SQL      ：表与表之间建立关联关系</p>
+<p>Nosql四大分类：</p>
+<ol>
+<li>键值存储</li>
+<li>列存储</li>
+<li>文档型（MongoDB）</li>
+<li>图形数据库</li>
+</ol>
+<p>NoSQL数据库在以下情况适用：</p>
+<ol>
+<li>数据模型比较简单</li>
+<li>需要灵活性更强的IT系统</li>
+<li>对数据库性能要求较高</li>
+<li>不需要高度的数据一致性</li>
+<li>对于给定key，比较容易映射复杂值的环境</li>
+</ol>
+<p>优点：</p>
+<ol>
+<li>丰富的数据结构</li>
+<li>高速读写</li>
+</ol>
+<p>缺点：</p>
+<ol>
+<li>持久化</li>
+<li>耗内存，占用内存过高</li>
+</ol>
+<p>P2</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 使用的库</span><br><span class="line">from flask import render_template, redirect, url_for, flash, session, request</span><br><span class="line">from app.admin.forms import LoginForm</span><br><span class="line">from functools import wraps</span><br><span class="line">from flask_wtf import FlaskForm</span><br><span class="line">from wtforms import StringField, PasswordField, SubmitField</span><br><span class="line">from wtforms.validators import DataRequired,ValidationError</span><br><span class="line"></span><br><span class="line"># 请求方法</span><br><span class="line">GET POST</span><br></pre></td></tr></table></figure>
 
 <p><img src="/images/01010.jpg" alt="image"></p>
