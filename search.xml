@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Test052]]></title>
+    <url>%2F2019%2F10%2F06%2FTest052%2F</url>
+    <content type="text"><![CDATA[FlaskB站微电影flask做到P20 redis string hash redis看到P12 mongodbmongodb看到p1]]></content>
+      <categories>
+        <category>Flask</category>
+      </categories>
+      <tags>
+        <tag>学习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Test051]]></title>
     <url>%2F2019%2F10%2F05%2FTest051%2F</url>
     <content type="text"><![CDATA[没有进步的一天今天也开始接触Mongodb了 redisP6]]></content>
