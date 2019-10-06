@@ -284,6 +284,221 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/25/Test043/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="林泽鑫">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/lzx.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/25/Test043/" itemprop="url">Test043</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-25T12:14:22+08:00">
+                2019-09-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Mysql/" itemprop="url" rel="index">
+                    <span itemprop="name">Mysql</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/09/25/Test043/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/09/25/Test043/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="学生表"><a href="#学生表" class="headerlink" title="学生表"></a>学生表</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">create table student(</span><br><span class="line">	sno varchar(20) primary key,</span><br><span class="line">	sname varchar(20) not null,</span><br><span class="line">	ssex varchar(10) not null,</span><br><span class="line">	sbirthday datetime,</span><br><span class="line">	class varchar(20)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h1 id="教师表"><a href="#教师表" class="headerlink" title="教师表"></a>教师表</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">create table teacher(</span><br><span class="line">	tno varchar(20) primary key,</span><br><span class="line">	tname varchar(20) not null,</span><br><span class="line">	tsex varchar(10) not null,</span><br><span class="line">	tbrithday datetime,</span><br><span class="line">	prof varchar(20) not null,</span><br><span class="line">	depart varchar(20) not null</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h1 id="课程表"><a href="#课程表" class="headerlink" title="课程表"></a>课程表</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">create table course(</span><br><span class="line">	cno varchar(20) primary key,</span><br><span class="line">	cname varchar(20) not null,</span><br><span class="line">	tno varchar(20) not null,</span><br><span class="line">	foreign key(tno) references teacher(tno)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h1 id="成绩表"><a href="#成绩表" class="headerlink" title="成绩表"></a>成绩表</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">create table score(</span><br><span class="line">	sno varchar(20) not null,</span><br><span class="line">	cno varchar(20) not null,</span><br><span class="line">	degree decimal,</span><br><span class="line">	foreign key(sno) references student(sno),</span><br><span class="line">	foreign key(cno) references course(cno),</span><br><span class="line">	primary key(sno,cno)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h1 id="添加学生表"><a href="#添加学生表" class="headerlink" title="添加学生表"></a>添加学生表</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">insert into student values(&apos;101&apos;,&apos;百度&apos;,&apos;男&apos;,&apos;1997-08-03&apos;,&apos;95033&apos;);</span><br><span class="line">insert into student values(&apos;102&apos;,&apos;腾讯&apos;,&apos;男&apos;,&apos;1996-08-03&apos;,&apos;95031&apos;);</span><br><span class="line">insert into student values(&apos;103&apos;,&apos;网易&apos;,&apos;女&apos;,&apos;1994-08-03&apos;,&apos;95033&apos;);</span><br><span class="line">insert into student values(&apos;104&apos;,&apos;抖音&apos;,&apos;男&apos;,&apos;1993-08-03&apos;,&apos;95033&apos;);</span><br><span class="line">insert into student values(&apos;105&apos;,&apos;爱奇艺&apos;,&apos;女&apos;,&apos;1998-08-03&apos;,&apos;95031&apos;);</span><br><span class="line">insert into student values(&apos;106&apos;,&apos;土豆&apos;,&apos;女&apos;,&apos;1997-08-03&apos;,&apos;95031&apos;);</span><br><span class="line">insert into student values(&apos;107&apos;,&apos;搜狐&apos;,&apos;男&apos;,&apos;1997-08-03&apos;,&apos;95033&apos;);</span><br><span class="line">insert into student values(&apos;108&apos;,&apos;颤巍巍&apos;,&apos;女&apos;,&apos;1999-08-03&apos;,&apos;95031&apos;);</span><br><span class="line">insert into student values(&apos;109&apos;,&apos;硬邦邦&apos;,&apos;男&apos;,&apos;1994-08-03&apos;,&apos;95031&apos;);</span><br></pre></td></tr></table></figure>
+
+<h1 id="添加教师表"><a href="#添加教师表" class="headerlink" title="添加教师表"></a>添加教师表</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">insert into teacher values(&apos;804&apos;,&apos;李城&apos;,&apos;男&apos;,&apos;1958-12-02&apos;,&apos;副教授&apos;,&apos;计算机系&apos;);</span><br><span class="line">insert into teacher values(&apos;856&apos;,&apos;张旭&apos;,&apos;男&apos;,&apos;1969-03-12&apos;,&apos;讲师&apos;,&apos;电子工程系&apos;);</span><br><span class="line">insert into teacher values(&apos;825&apos;,&apos;王萍&apos;,&apos;女&apos;,&apos;1972-05-05&apos;,&apos;助教&apos;,&apos;计算机系&apos;);</span><br><span class="line">insert into teacher values(&apos;831&apos;,&apos;刘冰&apos;,&apos;女&apos;,&apos;1977-08-14&apos;,&apos;助教&apos;,&apos;电子工程系&apos;);</span><br></pre></td></tr></table></figure>
+
+<h1 id="添加课程表"><a href="#添加课程表" class="headerlink" title="添加课程表"></a>添加课程表</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">insert into course values(&apos;3-105&apos;,&apos;计算机导论&apos;,&apos;825&apos;);</span><br><span class="line">insert into course values(&apos;3-245&apos;,&apos;操作系统&apos;,&apos;804&apos;);</span><br><span class="line">insert into course values(&apos;6-166&apos;,&apos;数字电路&apos;,&apos;856&apos;);</span><br><span class="line">insert into course values(&apos;9-888&apos;,&apos;高等数学&apos;,&apos;831&apos;);</span><br></pre></td></tr></table></figure>
+
+<h1 id="添加成绩表"><a href="#添加成绩表" class="headerlink" title="添加成绩表"></a>添加成绩表</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">insert into score values(&apos;103&apos;,&apos;3-245&apos;,&apos;86&apos;);</span><br><span class="line">insert into score values(&apos;103&apos;,&apos;3-105&apos;,&apos;92&apos;);</span><br><span class="line">insert into score values(&apos;103&apos;,&apos;6-166&apos;,&apos;85&apos;);</span><br><span class="line">insert into score values(&apos;105&apos;,&apos;3-245&apos;,&apos;75&apos;);</span><br><span class="line">insert into score values(&apos;105&apos;,&apos;3-105&apos;,&apos;88&apos;);</span><br><span class="line">insert into score values(&apos;105&apos;,&apos;6-166&apos;,&apos;79&apos;);</span><br><span class="line">insert into score values(&apos;109&apos;,&apos;3-245&apos;,&apos;68&apos;);</span><br><span class="line">insert into score values(&apos;109&apos;,&apos;3-105&apos;,&apos;76&apos;);</span><br><span class="line">insert into score values(&apos;109&apos;,&apos;6-166&apos;,&apos;81&apos;);</span><br></pre></td></tr></table></figure>
+
+<h1 id="查询练习"><a href="#查询练习" class="headerlink" title="查询练习"></a>查询练习</h1><h2 id="查询student表中的所有记录"><a href="#查询student表中的所有记录" class="headerlink" title="查询student表中的所有记录"></a>查询student表中的所有记录</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from student;</span><br></pre></td></tr></table></figure>
+
+<h2 id="查询student表中的所有的sname-ssex和class列"><a href="#查询student表中的所有的sname-ssex和class列" class="headerlink" title="查询student表中的所有的sname,ssex和class列"></a>查询student表中的所有的sname,ssex和class列</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select sname,ssex,class from student;</span><br></pre></td></tr></table></figure>
+
+<h2 id="查询教师所有的单位即不重复的depart列"><a href="#查询教师所有的单位即不重复的depart列" class="headerlink" title="查询教师所有的单位即不重复的depart列"></a>查询教师所有的单位即不重复的depart列</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select distinct depart from teacher;</span><br></pre></td></tr></table></figure>
+
+<h2 id="查询score表中成绩在60到80之间所有记录"><a href="#查询score表中成绩在60到80之间所有记录" class="headerlink" title="查询score表中成绩在60到80之间所有记录"></a>查询score表中成绩在60到80之间所有记录</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from score where degree between 60 and 80;</span><br></pre></td></tr></table></figure>
+
+<p>查询区间 between…and…</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from score where degree &gt; 60 and degree &lt; 80;</span><br></pre></td></tr></table></figure>
+
+<p>直接使用运算符比较</p>
+<h2 id="查询score表中成绩为85，86或88的记录"><a href="#查询score表中成绩为85，86或88的记录" class="headerlink" title="查询score表中成绩为85，86或88的记录"></a>查询score表中成绩为85，86或88的记录</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from score where degree in(85,86,88);</span><br></pre></td></tr></table></figure>
+
+<h2 id="查询student表中“95031”班或性别为为“女”的同学记录"><a href="#查询student表中“95031”班或性别为为“女”的同学记录" class="headerlink" title="查询student表中“95031”班或性别为为“女”的同学记录"></a>查询student表中“95031”班或性别为为“女”的同学记录</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from student where class=&apos;95031&apos; or ssex=&apos;女&apos;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="以class降序-升序查询student表的所有记录"><a href="#以class降序-升序查询student表的所有记录" class="headerlink" title="以class降序/升序查询student表的所有记录"></a>以class降序/升序查询student表的所有记录</h2><h3 id="降序"><a href="#降序" class="headerlink" title="降序"></a>降序</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from student order by class desc;</span><br></pre></td></tr></table></figure>
+
+<h3 id="升序"><a href="#升序" class="headerlink" title="升序"></a>升序</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select * from student order by class asc;</span><br><span class="line">select * from student order by class;</span><br></pre></td></tr></table></figure>
+
+<h2 id="以cno升序，degree降序查询score表的所有记录"><a href="#以cno升序，degree降序查询score表的所有记录" class="headerlink" title="以cno升序，degree降序查询score表的所有记录"></a>以cno升序，degree降序查询score表的所有记录</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from score order by cno asc,degree desc;</span><br></pre></td></tr></table></figure>
+
+<h2 id="查询“95031”般的学生人数"><a href="#查询“95031”般的学生人数" class="headerlink" title="查询“95031”般的学生人数"></a>查询“95031”般的学生人数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select count(*) from student where class=&apos;95031&apos;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="查询score表中最高分的学生学号和课程号"><a href="#查询score表中最高分的学生学号和课程号" class="headerlink" title="查询score表中最高分的学生学号和课程号"></a>查询score表中最高分的学生学号和课程号</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select sno,cno from score where degree=(select max(degree) from score);</span><br></pre></td></tr></table></figure>
+
+<h2 id="查询每门课的平均成绩"><a href="#查询每门课的平均成绩" class="headerlink" title="查询每门课的平均成绩"></a>查询每门课的平均成绩</h2><h3 id="查询一门课"><a href="#查询一门课" class="headerlink" title="查询一门课"></a>查询一门课</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select avg(degree) from score where cno=&apos;3-105&apos;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="查询多门课-group-by分组"><a href="#查询多门课-group-by分组" class="headerlink" title="查询多门课(group by分组)"></a>查询多门课(group by分组)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select cno,avg(degree) from score group by cno;</span><br></pre></td></tr></table></figure>
+
+<h2 id="查询score表中至少有5名学生选修的并以3开头的课程的平均分数"><a href="#查询score表中至少有5名学生选修的并以3开头的课程的平均分数" class="headerlink" title="查询score表中至少有5名学生选修的并以3开头的课程的平均分数"></a>查询score表中至少有5名学生选修的并以3开头的课程的平均分数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">select cno,avg(degree),count(*) from score </span><br><span class="line">group by cno</span><br><span class="line">having count(cno)&gt;=2 </span><br><span class="line">and cno like &apos;3%&apos;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="查询分数大于70，小于90的sno列"><a href="#查询分数大于70，小于90的sno列" class="headerlink" title="查询分数大于70，小于90的sno列"></a>查询分数大于70，小于90的sno列</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select sno,degree from score</span><br><span class="line">where degree&gt;70 and degree&lt;90;</span><br></pre></td></tr></table></figure>
+
+<h2 id="查询所有学生的sname-cno和degree列-两表关联"><a href="#查询所有学生的sname-cno和degree列-两表关联" class="headerlink" title="查询所有学生的sname,cno和degree列(两表关联)"></a>查询所有学生的sname,cno和degree列(两表关联)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select sname,cno,degree from student,score</span><br><span class="line">where student.sno = score.sno;</span><br></pre></td></tr></table></figure>
+
+<h2 id="查询所有学生的sno-cname和degree列-两表关联"><a href="#查询所有学生的sno-cname和degree列-两表关联" class="headerlink" title="查询所有学生的sno,cname和degree列(两表关联)"></a>查询所有学生的sno,cname和degree列(两表关联)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select sno,cname,degree from course,score</span><br><span class="line">where course.cno = score.cno;</span><br></pre></td></tr></table></figure>
+
+<h2 id="查询所有学生的sname-cname和degree列-三表关联"><a href="#查询所有学生的sname-cname和degree列-三表关联" class="headerlink" title="查询所有学生的sname,cname和degree列(三表关联)"></a>查询所有学生的sname,cname和degree列(三表关联)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select sname,cname,degree,student.sno as stu_sno,course.cno as cou_cno from student,course,score</span><br><span class="line">where student.sno = score.sno </span><br><span class="line">and course.cno = score.cno;</span><br></pre></td></tr></table></figure>
+
+<h2 id="查询“95031”班学生每门课的平均分"><a href="#查询“95031”班学生每门课的平均分" class="headerlink" title="查询“95031”班学生每门课的平均分"></a>查询“95031”班学生每门课的平均分</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">select cno,avg(degree) </span><br><span class="line">from score </span><br><span class="line">where sno in (select sno from student where class=&apos;95031&apos;) </span><br><span class="line">group by cno;</span><br></pre></td></tr></table></figure>
+
+<h2 id="查询选修“3-105”课程的成绩高于“109”号同学“3-105”成绩的所有同学的记录"><a href="#查询选修“3-105”课程的成绩高于“109”号同学“3-105”成绩的所有同学的记录" class="headerlink" title="查询选修“3-105”课程的成绩高于“109”号同学“3-105”成绩的所有同学的记录"></a>查询选修“3-105”课程的成绩高于“109”号同学“3-105”成绩的所有同学的记录</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from score where cno=&apos;3-105&apos; and degree&gt;(select degree from score where sno=&apos;109&apos; and cno=&apos;3-105&apos;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="查询成绩高于学号为“109”，课程号为“3-105”的成绩的所有记录"><a href="#查询成绩高于学号为“109”，课程号为“3-105”的成绩的所有记录" class="headerlink" title="查询成绩高于学号为“109”，课程号为“3-105”的成绩的所有记录"></a>查询成绩高于学号为“109”，课程号为“3-105”的成绩的所有记录</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from score where degree&gt;(select degree from score where sno=&apos;109&apos; and cno=&apos;3-105&apos;);</span><br></pre></td></tr></table></figure>
+
+<p>B站P31</p>
+<p><img src="/images/01003.jpg" alt="image"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/25/Test042/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1708,144 +1923,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/16/Test033/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="林泽鑫">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/lzx.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/09/16/Test033/" itemprop="url">Test033</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-16T01:02:12+08:00">
-                2019-09-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/09/16/Test033/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/09/16/Test033/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Day-by-Day"><a href="#Day-by-Day" class="headerlink" title="Day by Day"></a>Day by Day</h1><ul>
-<li><p>算法谜题5_请打碎水晶（很奇怪的算法，为什么不直接使用二分法呢）</p>
-</li>
-<li><p>Tornado看到P30</p>
-</li>
-<li><p>今天被老板看到我上班时间在看学习视频，下周任务有点重，哲哥让我把kitten转为scratch</p>
-</li>
-</ul>
-<p><img src="/images/%E5%B8%8C%E6%81%A9001.jpg" alt="image"></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1899,7 +1976,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">52</span>
+                  <span class="site-state-item-count">53</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
