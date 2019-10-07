@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Test054]]></title>
+    <url>%2F2019%2F10%2F08%2FTest054%2F</url>
+    <content type="text"><![CDATA[Flask做到P23 scratch了解如何把kitten中的素材导入到scratch中使用]]></content>
+      <categories>
+        <category>Flask</category>
+      </categories>
+      <tags>
+        <tag>学习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Test053]]></title>
     <url>%2F2019%2F10%2F07%2FTest053%2F</url>
     <content type="text"><![CDATA[Flask添加电影 12#使用wtforms库SubmitField, FileField, TextAreaField, SelectField 删除电影 做到P21~09：00 redis作用： 缓存redis,memcache 消息队列kafka,zero-mq,rabbit-mq,rocket-mq 会话保持 优点：高性能读写，多类型数据，数据持久化 redis一般在企业中，是单机多实例架构 看到后面感觉那个讲师讲的不好，果断取消收藏了，]]></content>
