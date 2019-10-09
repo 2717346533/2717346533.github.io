@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Test055]]></title>
+    <url>%2F2019%2F10%2F09%2FTest055%2F</url>
+    <content type="text"><![CDATA[Flask做到P30]]></content>
+      <categories>
+        <category>Flask</category>
+      </categories>
+      <tags>
+        <tag>学习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Test054]]></title>
     <url>%2F2019%2F10%2F08%2FTest054%2F</url>
     <content type="text"><![CDATA[Flask做到P23 scratch了解如何把kitten中的素材导入到scratch中使用]]></content>
